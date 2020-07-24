@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.payments.dao.RegistrarDAO">
+
+    <!--  保存到名单中  -->
+    <insert id="saveRegistrarInfo" parameterType="com.example.payments.entity.Registrar" useGeneratedKeys="true" keyProperty="id">
+        insert into registrars_list values(#{id},#{stuId},#{name})
+    </insert>
+
+    <!--  根据学号查询  -->
+    <select id="findByStuId" parameterType="String" resultType="com.example.payments.entity.Registrar">
+        select * from registrars_list where stuId = #{stuId}
+    </select>
+
+    <select id="findAll" resultType="com.example.payments.entity.Registrar">
+        select * from registrars_list
+    </select>
+</mapper>

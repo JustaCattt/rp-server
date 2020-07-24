@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.payments.dao.StudentDAO">
+
+    <!--  录入学生信息  -->
+    <insert id="saveStuInfo" parameterType="com.example.payments.entity.Student" useGeneratedKeys="true" keyProperty="id">
+        insert into student_info values(#{id},#{name},#{stuId},#{grade},#{major},#{college},#{claSs})
+    </insert>
+
+    <!--  根据学号查询学生  -->
+    <select id="findByStuId" parameterType="String" resultType="com.example.payments.entity.Student">
+        select * from student_info where stuId = #{stuId}
+    </select>
+
+    <select id="findAll" resultType="com.example.payments.entity.Student">
+        select * from student_info order by stuId
+    </select>
+
+    <!--  根据学号删除学生  -->
+    <delete id="removeByStuId" parameterType="String">
+        delete from student_info where stuId = #{stuId}
+    </delete>
+
+    <!--  清空列表  -->
+    <delete id="init" parameterType="String">
+        truncate table student_info
+    </delete>
+</mapper>
