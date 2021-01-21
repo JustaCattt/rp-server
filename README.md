@@ -1,2 +1,2 @@
-# rp-server
-Personal springboot + Vue front and rear end separation demo
+# stu-regist-pay
+大学数据库课程大作业
